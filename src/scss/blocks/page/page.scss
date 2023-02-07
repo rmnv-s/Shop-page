@@ -1,0 +1,11 @@
+@use 'helpers/color' as *;
+
+.page {
+  &__wrapper {
+    max-width: 1080px;
+    padding: 0 3.2rem;
+    @media (max-width: 380px) {
+      padding: 2rem;
+    }
+  }
+}
