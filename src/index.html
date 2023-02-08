@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="keywords" content="Ключевые слова и все такое" />
-    <meta name="description" content="Описание" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.min.css" />
-    <title>Store page</title>
-  </head>
-  <body class="root">
-    <div class="page page__wrapper">
-      <header class="header">
-        <a href="#" class="header__logo">dsgn shop</a>
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__list-item">
-              <a href="#" class="nav__list-link">About</a>
-            </li>
-            <li class="nav__list-item">
-              <a href="#" class="nav__list-link">Faq</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="keywords" content="Ключевые слова и все такое" />
+		<meta name="description" content="Описание" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/main.min.css" />
+		<title>Store page</title>
+	</head>
+	<body class="root">
+		<div class="page page__wrapper">
+			<header class="header">
+				<a href="#" class="header__logo">dsgn shop</a>
+				<nav class="nav">
+					<ul class="nav__list">
+						<li class="nav__list-item">
+							<a href="#" class="nav__list-link">About</a>
+						</li>
+						<li class="nav__list-item">
+							<a href="#" class="nav__list-link">Faq</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<main class="main">
+				<section class="shop"></section>
+			</main>
 
-    <script src="./js/script.min.js"></script>
-  </body>
+			<template class="cards">
+				<div class="card">
+					<h2 class="card__title"></h2>
+					<p class="card__price">Price: <span class="card__price-number"></span></p>
+					<button class="card__btn">Just buy</button>
+				</div>
+			</template>
+		</div>
+
+		<script type="module" src="./js/script.min.js"></script>
+	</body>
 </html>
