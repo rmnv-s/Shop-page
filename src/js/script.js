@@ -1,5 +1,6 @@
 import dataCards from './data.js';
 
+//  приходят карточки товаров
 const shop = document.querySelector('.cards');
 
 function addCardsToShop(item) {
@@ -11,12 +12,17 @@ function addCardsToShop(item) {
 	cardTitel.textContent = item.title;
 	cardPriceNumber.textContent = item.price;
 
+	// Button «Just buy»
+	card.querySelector('.card__btn').addEventListener('click', () => {
+		console.log('click');
+	});
+
 	return card;
 }
 
 function addCards(item, container) {
-	const newCard = addCardsToShop(item);
-	container.append(newCard);
+	// const newCard = addCardsToShop(item);
+	container.append(addCardsToShop(item));
 }
 
 dataCards.forEach(card => {
