@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="keywords" content="Ключевые слова и все такое" />
-    <meta name="description" content="Описание" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.min.css" />
-    <title>Store page</title>
-  </head>
-  <body class="root">
-    <div class="page page__wrapper">
-      <header class="header">
-        <a href="#" class="header__logo">dsgn shop</a>
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__list-item">
-              <a href="#" class="nav__list-link">About</a>
-            </li>
-            <li class="nav__list-item">
-              <a href="#" class="nav__list-link">Faq</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main class="main">
-        <section class="shop">
-          <div class="cards"></div>
-        </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="keywords" content="Ключевые слова и все такое" />
+		<meta name="description" content="Описание" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/main.min.css" />
+		<title>Store page</title>
+	</head>
+	<body class="root">
+		<div class="page page__wrapper">
+			<header class="header">
+				<a href="#" class="header__logo">dsgn shop</a>
+				<nav class="nav">
+					<ul class="nav__list">
+						<li class="nav__list-item">
+							<a href="#" class="nav__list-link">About</a>
+						</li>
+						<li class="nav__list-item">
+							<a href="#" class="nav__list-link">Faq</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<main class="main">
+				<section class="shop">
+					<div class="cards"></div>
+				</section>
 
-        <div class="cart">
-          <div class="cart__inner">
-            <h2 class="cart__title">Basket</h2>
-            <div class="product">
+				<div class="cart">
+					<h2 class="cart__title">Basket</h2>
+					<div class="cart__inner">
+						<!-- <div class="product">
               <p class="product__title">Nike</p>
               <p class="product__price">100 $</p>
               <button class="product__remove">X</button>
-            </div>
-            <div class="product">
-              <p class="product__title">Nord Face</p>
-              <p class="product__price">100$</p>
-              <button class="product__remove">X</button>
-            </div>
+            </div>-->
+						<div class="product">
+							<p class="product__title">Nord Face</p>
+							<p class="product__price">300$</p>
+							<button class="product__remove">&#10006;</button>
+						</div>
+					</div>
+					<p class="cart__price">Total: <span class="cart__price-total">1000</span></p>
+				</div>
+			</main>
 
-            <p class="cart__price">Total: <span class="cart__price-total">1000</span></p>
-          </div>
-        </div>
-      </main>
+			<template class="template-product">
+				<div class="product">
+					<p class="product__title"></p>
+					<p class="product__price"></p>
+					<button class="product__remove">&#10006;</button>
+				</div>
+			</template>
 
-      <template class="template">
-        <div class="card">
-          <h2 class="card__title"></h2>
-          <p class="card__price">Price: <span class="card__price-number"></span></p>
-          <button class="card__btn">Just buy</button>
-        </div>
-      </template>
-    </div>
+			<template class="template">
+				<div class="card">
+					<h2 class="card__title"></h2>
+					<p class="card__price">Price: <span class="card__price-number"></span></p>
+					<button class="card__btn">Just buy</button>
+				</div>
+			</template>
+		</div>
 
-    <script type="module" src="./js/script.min.js"></script>
-  </body>
+		<script type="module" src="./js/script.min.js"></script>
+	</body>
 </html>
