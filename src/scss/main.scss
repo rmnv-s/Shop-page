@@ -1,1 +1,137 @@
 @use 'frameworks' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+
+  &__logo {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $logo-color;
+    font-size: 2.1rem;
+    font-weight: bold;
+  }
+
+  & .nav {
+    &__list {
+      display: flex;
+      padding: 0;
+
+      &-item {
+        list-style-type: none;
+        &:not(:last-child) {
+          margin-right: 1.5rem;
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.shop {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #ff5f00;
+  padding: 2rem;
+  margin-bottom: 7rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+
+  @media (max-width: 495px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 378px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  background-color: #c8c7c7;
+  padding: 2rem 1.5rem;
+
+  &__title {
+    font-size: 2.4rem;
+  }
+
+  &__price {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    padding: 1rem;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    background-color: #333;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+      background-color: #fff;
+      color: #333;
+    }
+  }
+}
+
+.cart {
+  &__title {
+    // text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    opacity: 0.5;
+  }
+
+  &__inner {
+    max-width: 700px;
+    margin: 0 auto;
+    // outline: 1px solid tomato;
+  }
+
+  &__price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 5rem;
+  }
+
+  & .product {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #000;
+    padding: 0 0 0.5rem 0;
+
+    &__price {
+      flex: 1 auto;
+      margin: 0 2rem;
+    }
+
+    &__remove {
+      cursor: pointer;
+      border: 1px solid #000;
+      background: transparent;
+      opacity: 0.4;
+      transition: all ease-in 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

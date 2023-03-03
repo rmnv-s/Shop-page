@@ -4,6 +4,7 @@
   &__wrapper {
     max-width: 1080px;
     padding: 0 3.2rem;
+    margin: 0 auto;
     @media (max-width: 380px) {
       padding: 2rem;
     }
