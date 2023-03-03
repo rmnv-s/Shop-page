@@ -43,7 +43,12 @@ function cardToBasket(item) {
   product.querySelector('.product__price').textContent = item.price;
   product.querySelector('.product__remove').addEventListener('click', (evt) => {
     evt.target.closest('.product').remove();
-    console.log(product);
+    // cartArray.splice(product);
+    cartArray.forEach((el, i) => {
+      if (el.id === item.id) cartArray.splice(i, 1);
+    });
+    console.log(cartArray);
+    // console.log(item.id);
   });
 
   if (cartArray.find((i) => i.id === item.id)) {
@@ -51,6 +56,14 @@ function cardToBasket(item) {
   } else {
     cartInner.append(product);
     cartArray.push(item);
-    console.log(item.id);
+    console.log(cartArray);
   }
 }
+
+// var someArray = [{id: 1}, {id: 2}, {id: 3}],
+// 	idToDelete = 2
+// someArray.forEach(function(el, i) {
+// 	if (el.id == idToDelete) someArray.splice(i, 1)
+// })
+// console.log(someArray)
+// [{id: 1}, {id: 3}]
