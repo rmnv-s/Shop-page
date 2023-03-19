@@ -27,12 +27,12 @@ function addCardsToShop(item) {
 function addCards(item, container) {
   container.append(addCardsToShop(item));
 }
-
 dataCards.forEach((card) => {
   addCards(card, shop);
 });
 
 // CART
+const cartPriceTotal = document.querySelector('.cart__price-total');
 const cartArray = [];
 const cartInner = document.querySelector('.cart__inner');
 function cardToBasket(item) {
@@ -43,12 +43,19 @@ function cardToBasket(item) {
   product.querySelector('.product__price').textContent = item.price;
   product.querySelector('.product__remove').addEventListener('click', (evt) => {
     evt.target.closest('.product').remove();
+
     // cartArray.splice(product);
     cartArray.forEach((el, i) => {
       if (el.id === item.id) cartArray.splice(i, 1);
+      // console.log(item.id);
+      // console.log(cartArray);
     });
-    console.log(cartArray);
-    // console.log(item.id);
+    const sum = cartArray
+      .map((item) => item.price)
+      .reduce((previousValue, item) => previousValue + item, 0);
+    cartPriceTotal.textContent = sum + ' $';
+    // console.log(`sum:`, sum);
+    console.log({ sum });
   });
 
   if (cartArray.find((i) => i.id === item.id)) {
@@ -56,14 +63,18 @@ function cardToBasket(item) {
   } else {
     cartInner.append(product);
     cartArray.push(item);
-    console.log(cartArray);
+
+    //     const s = cartArray.map((item) => {
+    //       return item.price;
+    //     });
+    //
+    //     const sum = s.reduce((a, b) => {
+    //       return a + b;
+    //     });
+
+    const sum = cartArray
+      .map((item) => item.price)
+      .reduce((previousValue, item) => previousValue + item, 0);
+    cartPriceTotal.textContent = sum + ' $';
   }
 }
-
-// var someArray = [{id: 1}, {id: 2}, {id: 3}],
-// 	idToDelete = 2
-// someArray.forEach(function(el, i) {
-// 	if (el.id == idToDelete) someArray.splice(i, 1)
-// })
-// console.log(someArray)
-// [{id: 1}, {id: 3}]
