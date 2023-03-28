@@ -6,8 +6,9 @@ const dataCards = [
 
 //  приходят карточки товаров
 const shop = document.querySelector('.cards');
+const cartArray = [];
 
-function addCardsToShop(item) {
+function renderCard(item) {
   const templateCards = document.querySelector('.template').content;
   const card = templateCards.querySelector('.card').cloneNode(true);
 
@@ -17,64 +18,82 @@ function addCardsToShop(item) {
   cardPriceNumber.textContent = item.price;
 
   // Button «Just buy»
-  card.querySelector('.card__btn').addEventListener('click', () => {
-    cardToBasket(item);
+  const cardButton = card.querySelector('.card__btn');
+  cardButton.addEventListener('click', () => {
+    renderBusket(item);
+
+    console.log('Add card', { cartArray });
     // addToCa(item)
+    // cartArray.map((i) => console.log(i.price));
   });
 
   return card;
 }
-function addCards(item, container) {
-  container.append(addCardsToShop(item));
+function initialCardsToPage(item, container) {
+  container.append(renderCard(item));
 }
 dataCards.forEach((card) => {
-  addCards(card, shop);
+  initialCardsToPage(card, shop);
 });
 
 // CART
 const cartPriceTotal = document.querySelector('.cart__price-total');
-const cartArray = [];
 const cartInner = document.querySelector('.cart__inner');
-function cardToBasket(item) {
+
+function renderBusket(item) {
   const templateProduct = document.querySelector('.template-product').content;
   const product = templateProduct.querySelector('.product').cloneNode(true);
 
   product.querySelector('.product__title').textContent = item.title;
   product.querySelector('.product__price').textContent = item.price;
+
   product.querySelector('.product__remove').addEventListener('click', (evt) => {
     evt.target.closest('.product').remove();
-
-    // cartArray.splice(product);
-    cartArray.forEach((el, i) => {
-      if (el.id === item.id) cartArray.splice(i, 1);
-      // console.log(item.id);
-      // console.log(cartArray);
-    });
-    const sum = cartArray
-      .map((item) => item.price)
-      .reduce((previousValue, item) => previousValue + item, 0);
-    cartPriceTotal.textContent = sum + ' $';
-    // console.log(`sum:`, sum);
-    console.log({ sum });
+    deletaCartToBusket(item);
   });
 
-  if (cartArray.find((i) => i.id === item.id)) {
-    alert('product added');
+  if (cartArray.find((i) => i.id == item.id)) {
+    if (alert('product added')) {
+      console.log('btn-disable');
+    }
   } else {
-    cartInner.append(product);
     cartArray.push(item);
-
-    //     const s = cartArray.map((item) => {
-    //       return item.price;
-    //     });
-    //
-    //     const sum = s.reduce((a, b) => {
-    //       return a + b;
-    //     });
-
-    const sum = cartArray
-      .map((item) => item.price)
-      .reduce((previousValue, item) => previousValue + item, 0);
-    cartPriceTotal.textContent = sum + ' $';
+    cartInner.append(product);
   }
+
+  const sum = cartArray
+    .map((item) => item.price)
+    .reduce((previousValue, item) => previousValue + item, 0);
+  cartPriceTotal.textContent = sum + ' $';
+
+  // cartInner.append(product);
+  // cartArray.push(item);
 }
+function deletaCartToBusket(item) {
+  cartArray.forEach((el, i) => {
+    if (el.id === item.id) cartArray.splice(i, 1);
+  });
+  const sum = cartArray
+    .map((item) => item.price)
+    .reduce((previousValue, item) => previousValue + item, 0);
+  cartPriceTotal.textContent = sum + ' $';
+}
+
+//   const sum = cartArray
+//     .map((item) => item.price)
+//     .reduce((previousValue, item) => previousValue + item, 0);
+//   cartPriceTotal.textContent = sum + ' $';
+//   // console.log({ sum });
+// });
+
+//   if (cartArray.find((i) => i.id === item.id)) {
+//     alert('product added');
+//   } else {
+//     cartInner.append(product);
+//     cartArray.push(item);
+//
+//     const sum = cartArray
+//       .map((item) => item.price)
+//       .reduce((previousValue, item) => previousValue + item, 0);
+//     cartPriceTotal.textContent = sum + ' $';
+// }
