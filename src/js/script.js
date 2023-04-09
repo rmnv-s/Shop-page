@@ -79,21 +79,3 @@ function deletaCartToBusket(item) {
   cartPriceTotal.textContent = sum + ' $';
 }
 
-//   const sum = cartArray
-//     .map((item) => item.price)
-//     .reduce((previousValue, item) => previousValue + item, 0);
-//   cartPriceTotal.textContent = sum + ' $';
-//   // console.log({ sum });
-// });
-
-//   if (cartArray.find((i) => i.id === item.id)) {
-//     alert('product added');
-//   } else {
-//     cartInner.append(product);
-//     cartArray.push(item);
-//
-//     const sum = cartArray
-//       .map((item) => item.price)
-//       .reduce((previousValue, item) => previousValue + item, 0);
-//     cartPriceTotal.textContent = sum + ' $';
-// }
